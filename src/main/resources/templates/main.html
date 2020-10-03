@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>main</title>
+</head>
+<body>
+    <h1>Main page</h1>
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+</body>
+</html>
