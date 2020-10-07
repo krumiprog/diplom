@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>kvvj_АРМ</title>
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+
+<body>
+
+<th:block th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+        <a class="navbar-brand" href="#">kvvj_АРМ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-items">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="docs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        kvvj_Документы
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="docs">
+                        <a class="dropdown-item" href="#">kvvj_Ввод текущей даты</a>
+                        <a class="dropdown-item" href="#">kvvj_Ввод и разноска первичных документов</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="reg-book" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        kvvj_РЖ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="reg-book">
+                        <a class="dropdown-item" href="#">kvvj_Просмотр РЖ</a>
+                        <a class="dropdown-item" href="#">kvvj_Формирование КС из РЖ</a>
+                        <a class="dropdown-item" href="#">kvvj_Просмотр КС</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">kvvj_Сформировать КС для печати</a>
+                        <a class="dropdown-item" href="#">kvvj_Просмотр КС для печати</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="fin-state" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        kvvj_БО
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="fin-state">
+                        <a class="dropdown-item" href="#">kvvj_Определение отчетных форм</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">kvvj_Сформировать ОСВ</a>
+                        <a class="dropdown-item" href="#">kvvj_Просмотр ОСВ</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">kvvj_Сформировать ЖО</a>
+                        <a class="dropdown-item" href="#">kvvj_Просмотр ЖО</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">kvvj_Сформировать БВ</a>
+                        <a class="dropdown-item" href="#">kvvj_Просмотр БВ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="cards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        kvvj_Картотеки
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="cards">
+                        <a class="dropdown-item" href="#">kvvj_Определение первичных документов</a>
+                        <a class="dropdown-item" href="#">kvvj_Типовые хозяйственные операции</a>
+                        <a class="dropdown-item" href="#">kvvj_План счетов</a>
+                        <a class="dropdown-item" href="#">kvvj_Виды аналитики</a>
+                        <a class="dropdown-item" href="#">kvvj_Коды аналитического учёта</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">kvvj_Настройки АРМа</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Username
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="user">
+                        <a class="dropdown-item" href="#">kvvj_Администрирование</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item">
+                            <form method="post">
+                                <button class="btn btn-outline-danger" type="submit">kvvj_Выход</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>
+
+<th:block th:fragment="bootstrap_scripts">
+    <script th:src="@{/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/bootstrap.min.js}"></script>
+</th:block>
+
+</body>
+</html>

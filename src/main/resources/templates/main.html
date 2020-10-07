@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>main</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
-    <h1>Main page</h1>
+    <th:block th:replace="fragments :: header"></th:block>
+
     <form method="post" th:action="@{/logout}">
         <input type="submit" value="Logout"/>
     </form>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
 </body>
 </html>
