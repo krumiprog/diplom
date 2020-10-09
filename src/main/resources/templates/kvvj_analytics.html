@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Виды аналитики</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_analytics}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label" for="vaK">kvvj_Код вида аналитики</label>
+                        <div class="col-2">
+                            <input type="text" id="vaK" name="vaK" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label" for="vaN">kvvj_Название вида аналитики</label>
+                        <div class="col-6">
+                            <input type="text" id="vaN" name="vaN" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_analytics/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_analytics/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">kvvj_va_0</th>
+                                <th scope="col">kvvj_va_k</th>
+                                <th scope="col">kvvj_va_n</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="type : ${types}">
+                                    <td th:text="${type.id}">id</td>
+                                    <td th:text="${type.vaK}">code</td>
+                                    <td th:text="${type.vaN}">name</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/types_analytics.js}"></script>
+</body>
+</html>
