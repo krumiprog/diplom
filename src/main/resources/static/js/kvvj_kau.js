@@ -1,6 +1,6 @@
-let vaK = document.querySelector('input[name=vaK]')
-let vaN = document.querySelector('input[name=vaN]')
 let id = document.querySelector('input[name=id]')
+let kauN = document.querySelector('select[name=kauN]')
+let kauK = document.querySelector('input[name=kauK]')
 let trs = document.querySelectorAll('tbody tr')
 let prevBtn = document.querySelector('button[name=prev]')
 let nextBtn = document.querySelector('button[name=next]')
@@ -10,12 +10,12 @@ function fillForm() {
   if (rowCurIndex >= 0 && rowCurIndex < trs.length) {
     let ths = trs[rowCurIndex].children
     id.value = ths[0].textContent
-    vaK.value = ths[1].textContent
-    vaN.value = ths[2].textContent
+    kauN.value = ths[1].textContent
+    kauK.value = ths[2].textContent
   } else {
     id.value = ''
-    vaK.value = ''
-    vaN.value = ''
+    kauN.value = ''
+    kauK.value = ''
   }
 }
 
@@ -23,8 +23,8 @@ trs.forEach(tr => {
   tr.addEventListener('dblclick', () => {
     let ths = tr.children
     id.value = ths[0].textContent
-    vaK.value = ths[1].textContent
-    vaN.value = ths[2].textContent
+    kauN.value = ths[1].textContent
+    kauK.value = ths[2].textContent
   })
 })
 

@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Application</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
 <body>
-    <h1>Login</h1>
-    <form th:action="@{/login}" method="post">
-        <label for="password">password</label>
-        <input type="text" id="password" name="password"><br>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <button type="submit">submit</button>
-    </form>
-    <div>
-        <a href="/registration">registration</a>
+<!--    <div>-->
+<!--        <a href="/registration">registration</a>-->
+<!--    </div>-->
+    <div class="border d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="border shadow rounded p-5">
+            <h2 class="text-center">kvvj_АРМ</h2>
+            <h5 class="mb-4 text-center">Автоматизированное рабочее<br>место</h5>
+            <p>Войдите в систему</p>
+            <form th:action="@{/login}" method="post">
+                <input type="text" name="username" class="form-control mb-4" placeholder="Имя">
+                <input type="password" name="password" class="form-control mb-4" placeholder="Пароль">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
+                    <label class="custom-control-label" for="remember-me">Запомнить меня</label>
+                </div>
+                <button class="btn btn-primary btn-block my-4" type="submit">Войти</button>
+            </form>
+        </div>
     </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
 </body>
 </html>

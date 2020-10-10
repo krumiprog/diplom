@@ -21,11 +21,11 @@ public class AnalyticalAccountingCodes {
     @Column(name = "kvvj_kau_0")
     private Long id;
 
-    // код аналитики (c5)
-    @Column(name = "kvvj_kau_k")
-    private String kauK;
-
-    // вид аналитики (c15)
+    // вид аналитики (c5)
     @Column(name = "kvvj_kau_n")
     private String kauN;
+
+    // код аналитики (c15)
+    @Column(name = "kvvj_kau_k")
+    private String kauK;
 }

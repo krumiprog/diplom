@@ -12,38 +12,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/kvvj_analytics")
+@RequestMapping("/kvvj_va")
 public class TypesAnalyticsController {
 
         @Autowired
-        private TypesAnalyticsRepository repository;
+        private TypesAnalyticsRepository typesAnalyticsRepository;
 
         @GetMapping
         public String getForm(Model model) {
-            Iterable<TypesAnalytics> types = repository.findAll();
+            Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
             model.addAttribute("types", types);
-            return "kvvj_analytics";
+            return "kvvj_va";
         }
 
         @PostMapping
         public String createType(TypesAnalytics typesAnalytics) {
-            if (repository.findByVaK(typesAnalytics.getVaK()).isEmpty()) {
-//            if (repository.findById(typesAnalytics.getId()).isEmpty()) {
-                repository.save(typesAnalytics);
+            if (typesAnalytics.getId() == null
+                    && typesAnalyticsRepository.findByVaK(typesAnalytics.getVaK()).isEmpty()) {
+                typesAnalyticsRepository.save(typesAnalytics);
             }
-            return "redirect:/kvvj_analytics";
+            return "redirect:/kvvj_va";
         }
 
         @PostMapping("/update")
         public String updateType(TypesAnalytics typesAnalytics) {
-            repository.save(typesAnalytics);
-            return "redirect:/kvvj_analytics";
+            if (typesAnalytics.getId() != null) {
+                typesAnalyticsRepository.save(typesAnalytics);
+            }
+            return "redirect:/kvvj_va";
         }
 
         @PostMapping("/delete")
         public String deleteType(TypesAnalytics typesAnalytics) {
-            Optional<TypesAnalytics> byId = repository.findById(typesAnalytics.getId());
-            byId.ifPresent(repository::delete);
-            return "redirect:/kvvj_analytics";
+            Optional<TypesAnalytics> byId = typesAnalyticsRepository.findById(typesAnalytics.getId());
+            byId.ifPresent(typesAnalyticsRepository::delete);
+            return "redirect:/kvvj_va";
         }
 }

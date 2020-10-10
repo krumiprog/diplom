@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments :: head"></head>
 <body>
     <th:block th:replace="fragments :: header"></th:block>
@@ -9,18 +10,20 @@
                 <h5 class="card-title">kvvj_Виды аналитики</h5>
             </div>
             <div class="card-body">
-                <form method="post" th:action="@{/kvvj_analytics}">
+                <form method="post" th:action="@{/kvvj_kau}">
                     <input type="hidden" name="id">
                     <div class="form-group row">
-                        <label class="col-4 col-form-label" for="vaK">kvvj_Код вида аналитики</label>
+                        <label class="col-4 col-form-label" for="kauN">kvvj_Вид аналитики</label>
                         <div class="col-2">
-                            <input type="text" id="vaK" name="vaK" required="required" class="form-control">
+                            <select id="kauN" name="kauN" required="required" class="custom-select">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-4 col-form-label" for="vaN">kvvj_Название вида аналитики</label>
+                        <label for="kauK" class="col-4 col-form-label">kvvj_Код аналитики</label>
                         <div class="col-6">
-                            <input type="text" id="vaN" name="vaN" required="required" class="form-control">
+                            <input id="kauK" name="kauK" type="text" required="required" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -36,10 +39,10 @@
                             <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
                         </div>
                         <div class="offset-2 col-2">
-                            <button type="submit" th:formaction="@{/kvvj_analytics/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                            <button type="submit" th:formaction="@{/kvvj_kau/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" th:formaction="@{/kvvj_analytics/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                            <button type="submit" th:formaction="@{/kvvj_kau/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
                         </div>
                     </div>
                 </form>
@@ -57,17 +60,17 @@
                         <table class="table table-sm table-striped table-hover">
                             <thead>
                             <tr>
-                                <th scope="col">kvvj_va_0</th>
-                                <th scope="col">kvvj_va_k</th>
-                                <th scope="col">kvvj_va_n</th>
+                                <th scope="col">kvvj_kau_0</th>
+                                <th scope="col">kvvj_kau_k</th>
+                                <th scope="col">kvvj_kau_n</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="type : ${types}">
-                                    <td th:text="${type.id}">id</td>
-                                    <td th:text="${type.vaK}">code</td>
-                                    <td th:text="${type.vaN}">name</td>
-                                </tr>
+                            <tr th:each="code : ${codes}">
+                                <td th:text="${code.id}">id</td>
+                                <td th:text="${code.kauN}">type</td>
+                                <td th:text="${code.kauK}">code</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -77,6 +80,6 @@
     </div>
 
     <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
-    <script th:src="@{/js/types_analytics.js}"></script>
+    <script th:src="@{/js/kvvj_kau.js}"></script>
 </body>
 </html>
