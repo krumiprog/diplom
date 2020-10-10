@@ -13,19 +13,19 @@
                 <form method="post" th:action="@{/kvvj_ps}">
                     <input type="hidden" name="id">
                     <div class="form-group row">
-                        <label for="psS" class="col-4 col-form-label">kvvj_Код счёта</label>
+                        <label for="psS" class="offset-1 col-3 col-form-label">kvvj_Код счёта</label>
                         <div class="col-2">
                             <input id="psS" name="psS" type="number" class="form-control" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="psN" class="col-4 col-form-label">kvvj_Название счёта</label>
-                        <div class="col-6">
+                        <label for="psN" class="offset-1 col-3 col-form-label">kvvj_Название счёта</label>
+                        <div class="col-4">
                             <input id="psN" name="psN" type="text" class="form-control" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="psTyp" class="col-4 col-form-label">kvvj_Тип счёта</label>
+                        <label for="psTyp" class="offset-1 col-3 col-form-label">kvvj_Тип счёта</label>
                         <div class="col-1">
                             <select id="psTyp" name="psTyp" class="custom-select" aria-describedby="psTypHelpBlock" required="required">
                                 <option value="А">А</option>
@@ -35,7 +35,7 @@
                         </div><span id="psTypHelpBlock" class="form-text text-muted">Актив, Пассив, Х = А - П</span>
                     </div>
                     <div class="form-group row">
-                        <label for="psAv1" class="col-4 col-form-label">kvvj_Вид аналитики 1</label>
+                        <label for="psAv1" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 1</label>
                         <div class="col-2">
                             <select id="psAv1" name="psAv1" class="custom-select" required="required">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="psAv2" class="col-4 col-form-label">kvvj_Вид аналитики 2</label>
+                        <label for="psAv2" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 2</label>
                         <div class="col-2">
                             <select id="psAv2" name="psAv2" class="custom-select" required="required">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>

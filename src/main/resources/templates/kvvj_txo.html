@@ -2,11 +2,133 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments :: head"></head>
 <body>
-<th:block th:replace="fragments :: header"></th:block>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Типовые хозяйственные документы</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_opd}">
+
+
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label for="txoDokk" class="offset-1 col-3 col-form-label">kvvj_Код документа</label>
+                        <div class="col-2">
+                            <select id="txoDokk" name="txoDokk" class="custom-select" required="required">
+
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="txoK" class="offset-1 col-3 col-form-label">kvvj_Операция</label>
+                        <div class="col-4">
+                            <input id="txoK" name="txoK" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="txoDb" class="offset-1 col-3 col-form-label">kvvj_Дебет</label>
+                        <div class="col-2">
+                            <select id="txoDb" name="txoDb" class="custom-select" required="required">
+
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <input id="txoDbn" name="txoDbn" type="text" class="form-control" required="required">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="txoKr" class="offset-1 col-3 col-form-label">kvvj_Кредит</label>
+                        <div class="col-2">
+                            <select id="txoKr" name="txoKr" class="custom-select">
+
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <input id="txoKrn" name="txoKrn" type="text" class="form-control" required="required">
+                        </div>
+                    </div>
 
 
 
-<th:block th:replace="fragments :: bootstrap_scripts"></th:block>
-<script th:src="@{/js/kvvj_txo.js}"></script>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_opd/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_opd/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_txo_0</th>
+                                    <th scope="col">kvvj_txo_dokk</th>
+                                    <th scope="col">kvvj_txo_k</th>
+                                    <th scope="col">kvvj_txo_db</th>
+                                    <th scope="col">kvvj_txo_dbn</th>
+                                    <th scope="col">kvvj_txo_kr</th>
+                                    <th scope="col">kvvj_txo_krn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="operation : ${operations}">
+                                    <td th:text="${operation.id}">empty</td>
+                                    <td th:text="${operation.txoDokk}">empty</td>
+                                    <td th:text="${operation.txoK}">empty</td>
+                                    <td th:text="${operation.txoDb}">empty</td>
+                                    <td th:text="${operation.txoDbn}">empty</td>
+                                    <td th:text="${operation.txoKr}">empty</td>
+                                    <td th:text="${operation.txoKrn}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_txo.js}"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
                 <form method="post" th:action="@{/kvvj_kau}">
                     <input type="hidden" name="id">
                     <div class="form-group row">
-                        <label class="col-4 col-form-label" for="kauN">kvvj_Вид аналитики</label>
+                        <label class="offset-1 col-3 col-form-label" for="kauN">kvvj_Вид аналитики</label>
                         <div class="col-2">
                             <select id="kauN" name="kauN" required="required" class="custom-select">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="kauK" class="col-4 col-form-label">kvvj_Код аналитики</label>
-                        <div class="col-6">
+                        <label for="kauK" class="offset-1 col-3 col-form-label">kvvj_Код аналитики</label>
+                        <div class="col-4">
                             <input id="kauK" name="kauK" type="text" required="required" class="form-control">
                         </div>
                     </div>

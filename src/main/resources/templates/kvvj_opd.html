@@ -7,25 +7,25 @@
     <div class="container">
         <div class="card my-3 shadow">
             <div class="card-header text-center">
-                <h5 class="card-title">kvvj_План счетов</h5>
+                <h5 class="card-title">kvvj_Определение первичных документов</h5>
             </div>
             <div class="card-body">
                 <form method="post" th:action="@{/kvvj_opd}">
                     <input type="hidden" name="id">
                     <div class="form-group row">
-                        <label for="opdK" class="col-4 col-form-label">kvvj_Код документа</label>
+                        <label for="opdK" class="offset-1 col-3 col-form-label">kvvj_Код документа</label>
                         <div class="col-2">
                             <input id="opdK" name="opdK" type="text" required="required" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="opdN" class="col-4 col-form-label">kvvj_Название документа</label>
-                        <div class="col-6">
+                        <label for="opdN" class="offset-1 col-3 col-form-label">kvvj_Название документа</label>
+                        <div class="col-4">
                             <input id="opdN" name="opdN" type="text" required="required" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="opdAv1" class="col-4 col-form-label">kvvj_Вид аналитики 1</label>
+                        <label for="opdAv1" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 1</label>
                         <div class="col-2">
                             <select id="opdAv1" name="opdAv1" required="required" class="custom-select">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
@@ -42,7 +42,7 @@
                         <span id="opdAvt1HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
                     </div>
                     <div class="form-group row">
-                        <label for="opdAv2" class="col-4 col-form-label">kvvj_Вид аналитики 2</label>
+                        <label for="opdAv2" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 2</label>
                         <div class="col-2">
                             <select id="opdAv2" name="opdAv2" required="required" class="custom-select">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
@@ -59,7 +59,7 @@
                         <span id="opdAvt2HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
                     </div>
                     <div class="form-group row">
-                        <label for="opdAv3" class="col-4 col-form-label">kvvj_Вид аналитики 3</label>
+                        <label for="opdAv3" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 3</label>
                         <div class="col-2">
                             <select id="opdAv3" name="opdAv3" class="custom-select" required="required">
                                 <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
