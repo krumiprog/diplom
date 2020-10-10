@@ -7,7 +7,7 @@
     <div class="container">
         <div class="card my-3 shadow">
             <div class="card-header text-center">
-                <h5 class="card-title">kvvj_Виды аналитики</h5>
+                <h5 class="card-title">kvvj_Коды аналитического учёта</h5>
             </div>
             <div class="card-body">
                 <form method="post" th:action="@{/kvvj_kau}">
@@ -59,18 +59,18 @@
                     <div class="table-responsive">
                         <table class="table table-sm table-striped table-hover">
                             <thead>
-                            <tr>
-                                <th scope="col">kvvj_kau_0</th>
-                                <th scope="col">kvvj_kau_k</th>
-                                <th scope="col">kvvj_kau_n</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">kvvj_kau_0</th>
+                                    <th scope="col">kvvj_kau_k</th>
+                                    <th scope="col">kvvj_kau_n</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="code : ${codes}">
-                                <td th:text="${code.id}">id</td>
-                                <td th:text="${code.kauN}">type</td>
-                                <td th:text="${code.kauK}">code</td>
-                            </tr>
+                                <tr th:each="code : ${codes}">
+                                    <td th:text="${code.id}">empty</td>
+                                    <td th:text="${code.kauN}">empty</td>
+                                    <td th:text="${code.kauK}">empty</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -18,9 +18,9 @@ import java.util.Optional;
 public class AnalyticsAccountingCodesController {
 
     @Autowired
-    private TypesAnalyticsRepository typesAnalyticsRepository;
-    @Autowired
     private AnalyticalAccountingCodesRepository analyticalAccountingCodesRepository;
+    @Autowired
+    private TypesAnalyticsRepository typesAnalyticsRepository;
 
     @GetMapping
     public String getForm(Model model) {
@@ -32,7 +32,7 @@ public class AnalyticsAccountingCodesController {
     }
 
     @PostMapping
-    public String createType(AnalyticalAccountingCodes analyticalAccountingCodes) {
+    public String create(AnalyticalAccountingCodes analyticalAccountingCodes) {
         if (analyticalAccountingCodes.getId() == null && analyticalAccountingCodesRepository.findByKauNAndKauK(
                         analyticalAccountingCodes.getKauN(), analyticalAccountingCodes.getKauK()).isEmpty()) {
             analyticalAccountingCodesRepository.save(analyticalAccountingCodes);
@@ -41,7 +41,7 @@ public class AnalyticsAccountingCodesController {
     }
 
     @PostMapping("/update")
-    public String updateType(AnalyticalAccountingCodes analyticalAccountingCodes) {
+    public String update(AnalyticalAccountingCodes analyticalAccountingCodes) {
         if (analyticalAccountingCodes.getId() != null) {
             analyticalAccountingCodesRepository.save(analyticalAccountingCodes);
         }
@@ -49,7 +49,7 @@ public class AnalyticsAccountingCodesController {
     }
 
     @PostMapping("/delete")
-    public String deleteType(AnalyticalAccountingCodes analyticalAccountingCodes) {
+    public String delete(AnalyticalAccountingCodes analyticalAccountingCodes) {
         Optional<AnalyticalAccountingCodes> byId = analyticalAccountingCodesRepository
                 .findById(analyticalAccountingCodes.getId());
         byId.ifPresent(analyticalAccountingCodesRepository::delete);

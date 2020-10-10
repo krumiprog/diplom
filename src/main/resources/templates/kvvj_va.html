@@ -57,17 +57,17 @@
                     <div class="table-responsive">
                         <table class="table table-sm table-striped table-hover">
                             <thead>
-                            <tr>
-                                <th scope="col">kvvj_va_0</th>
-                                <th scope="col">kvvj_va_k</th>
-                                <th scope="col">kvvj_va_n</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">kvvj_va_0</th>
+                                    <th scope="col">kvvj_va_k</th>
+                                    <th scope="col">kvvj_va_n</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="type : ${types}">
-                                    <td th:text="${type.id}">id</td>
-                                    <td th:text="${type.vaK}">code</td>
-                                    <td th:text="${type.vaN}">name</td>
+                                    <td th:text="${type.id}">empty</td>
+                                    <td th:text="${type.vaK}">empty</td>
+                                    <td th:text="${type.vaN}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

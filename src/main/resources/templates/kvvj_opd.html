@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_План счетов</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_opd}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label for="opdK" class="col-4 col-form-label">kvvj_Код документа</label>
+                        <div class="col-2">
+                            <input id="opdK" name="opdK" type="text" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="opdN" class="col-4 col-form-label">kvvj_Название документа</label>
+                        <div class="col-6">
+                            <input id="opdN" name="opdN" type="text" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="opdAv1" class="col-4 col-form-label">kvvj_Вид аналитики 1</label>
+                        <div class="col-2">
+                            <select id="opdAv1" name="opdAv1" required="required" class="custom-select">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
+                        </div>
+                        <label for="opdAvt1" class="col-2 col-form-label text-right">проходит по</label>
+                        <div class="col-1">
+                            <select id="opdAvt1" name="opdAvt1" class="custom-select" required="required" aria-describedby="opdAvt1HelpBlock">
+                                <option value="Д">Д</option>
+                                <option value="К">К</option>
+                                <option value="Х">Х</option>
+                            </select>
+                        </div>
+                        <span id="opdAvt1HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
+                    </div>
+                    <div class="form-group row">
+                        <label for="opdAv2" class="col-4 col-form-label">kvvj_Вид аналитики 2</label>
+                        <div class="col-2">
+                            <select id="opdAv2" name="opdAv2" required="required" class="custom-select">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
+                        </div>
+                        <label for="opdAvt2" class="col-2 col-form-label text-right">проходит по</label>
+                        <div class="col-1">
+                            <select id="opdAvt2" name="opdAvt2" class="custom-select" required="required" aria-describedby="opdAvt2HelpBlock">
+                                <option value="Д">Д</option>
+                                <option value="К">К</option>
+                                <option value="Х">Х</option>
+                            </select>
+                        </div>
+                        <span id="opdAvt2HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
+                    </div>
+                    <div class="form-group row">
+                        <label for="opdAv3" class="col-4 col-form-label">kvvj_Вид аналитики 3</label>
+                        <div class="col-2">
+                            <select id="opdAv3" name="opdAv3" class="custom-select" required="required">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
+                        </div>
+                        <label for="opdAvt3" class="col-2 col-form-label text-right">проходит по</label>
+                        <div class="col-1">
+                            <select id="opdAvt3" name="opdAvt3" class="custom-select" required="required" aria-describedby="opdAvt3HelpBlock">
+                                <option value="Д">Д</option>
+                                <option value="К">К</option>
+                                <option value="Х">Х</option>
+                            </select>
+                        </div>
+                        <span id="opdAvt3HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_opd/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_opd/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_opd_0</th>
+                                    <th scope="col">kvvj_opd_k</th>
+                                    <th scope="col">kvvj_opd_n</th>
+                                    <th scope="col">kvvj_opd_av1</th>
+                                    <th scope="col">kvvj_opd_avt1</th>
+                                    <th scope="col">kvvj_opd_av2</th>
+                                    <th scope="col">kvvj_opd_avt2</th>
+                                    <th scope="col">kvvj_opd_av3</th>
+                                    <th scope="col">kvvj_opd_avt3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="doc : ${docs}">
+                                    <td th:text="${doc.id}">empty</td>
+                                    <td th:text="${doc.opdK}">empty</td>
+                                    <td th:text="${doc.opdN}">empty</td>
+                                    <td th:text="${doc.opdAv1}">empty</td>
+                                    <td th:text="${doc.opdAvt1}">empty</td>
+                                    <td th:text="${doc.opdAv2}">empty</td>
+                                    <td th:text="${doc.opdAvt2}">empty</td>
+                                    <td th:text="${doc.opdAv3}">empty</td>
+                                    <td th:text="${doc.opdAvt3}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_opd.js}"></script>
+</body>
+</html>

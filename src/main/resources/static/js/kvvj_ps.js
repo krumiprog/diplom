@@ -1,6 +1,9 @@
 let id = document.querySelector('input[name=id]')
-let kauN = document.querySelector('select[name=kauN]')
-let kauK = document.querySelector('input[name=kauK]')
+let psS = document.querySelector('input[name=psS]')
+let psN = document.querySelector('input[name=psN]')
+let psTyp = document.querySelector('select[name=psTyp]')
+let psAv1 = document.querySelector('select[name=psAv1]')
+let psAv2 = document.querySelector('select[name=psAv2]')
 let trs = document.querySelectorAll('tbody tr')
 let prevBtn = document.querySelector('button[name=prev]')
 let nextBtn = document.querySelector('button[name=next]')
@@ -8,8 +11,11 @@ let rowCurIndex = -1;
 
 function fillForm(ths) {
     id.value = ths[0].textContent
-    kauN.value = ths[1].textContent
-    kauK.value = ths[2].textContent
+    psS.value = ths[1].textContent
+    psN.value = ths[2].textContent
+    psTyp.value = ths[3].textContent
+    psAv1.value = ths[4].textContent
+    psAv2.value = ths[5].textContent
 }
 
 function getCellsValue() {
@@ -18,8 +24,11 @@ function getCellsValue() {
     fillForm(ths)
   } else {
     id.value = ''
-    kauN.value = ''
-    kauK.value = ''
+    psS.value = ''
+    psN.value = ''
+    psTyp.value = ''
+    psAv1.value = ''
+    psAv2.value = ''
   }
 }
 

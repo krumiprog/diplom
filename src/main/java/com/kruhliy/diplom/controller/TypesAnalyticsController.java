@@ -26,7 +26,7 @@ public class TypesAnalyticsController {
         }
 
         @PostMapping
-        public String createType(TypesAnalytics typesAnalytics) {
+        public String create(TypesAnalytics typesAnalytics) {
             if (typesAnalytics.getId() == null
                     && typesAnalyticsRepository.findByVaK(typesAnalytics.getVaK()).isEmpty()) {
                 typesAnalyticsRepository.save(typesAnalytics);
@@ -35,7 +35,7 @@ public class TypesAnalyticsController {
         }
 
         @PostMapping("/update")
-        public String updateType(TypesAnalytics typesAnalytics) {
+        public String update(TypesAnalytics typesAnalytics) {
             if (typesAnalytics.getId() != null) {
                 typesAnalyticsRepository.save(typesAnalytics);
             }
@@ -43,7 +43,7 @@ public class TypesAnalyticsController {
         }
 
         @PostMapping("/delete")
-        public String deleteType(TypesAnalytics typesAnalytics) {
+        public String delete(TypesAnalytics typesAnalytics) {
             Optional<TypesAnalytics> byId = typesAnalyticsRepository.findById(typesAnalytics.getId());
             byId.ifPresent(typesAnalyticsRepository::delete);
             return "redirect:/kvvj_va";

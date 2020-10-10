@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_План счетов</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_ps}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label for="psS" class="col-4 col-form-label">kvvj_Код счёта</label>
+                        <div class="col-2">
+                            <input id="psS" name="psS" type="number" class="form-control" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="psN" class="col-4 col-form-label">kvvj_Название счёта</label>
+                        <div class="col-6">
+                            <input id="psN" name="psN" type="text" class="form-control" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="psTyp" class="col-4 col-form-label">kvvj_Тип счёта</label>
+                        <div class="col-1">
+                            <select id="psTyp" name="psTyp" class="custom-select" aria-describedby="psTypHelpBlock" required="required">
+                                <option value="А">А</option>
+                                <option value="П">П</option>
+                                <option value="Х">Х</option>
+                            </select>
+                        </div><span id="psTypHelpBlock" class="form-text text-muted">Актив, Пассив, Х = А - П</span>
+                    </div>
+                    <div class="form-group row">
+                        <label for="psAv1" class="col-4 col-form-label">kvvj_Вид аналитики 1</label>
+                        <div class="col-2">
+                            <select id="psAv1" name="psAv1" class="custom-select" required="required">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="psAv2" class="col-4 col-form-label">kvvj_Вид аналитики 2</label>
+                        <div class="col-2">
+                            <select id="psAv2" name="psAv2" class="custom-select" required="required">
+                                <option th:each="type : ${types}" th:value="${type.vaK}" th:text="${type.vaK}">type</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_ps/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_ps/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_ps_0</th>
+                                    <th scope="col">kvvj_ps_s</th>
+                                    <th scope="col">kvvj_ps_n</th>
+                                    <th scope="col">kvvj_ps_typ</th>
+                                    <th scope="col">kvvj_ps_av1</th>
+                                    <th scope="col">kvvj_ps_av2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="chart : ${charts}">
+                                    <td th:text="${chart.id}">empty</td>
+                                    <td th:text="${chart.psS}">empty</td>
+                                    <td th:text="${chart.psN}">empty</td>
+                                    <td th:text="${chart.psTyp}">empty</td>
+                                    <td th:text="${chart.psAv1}">empty</td>
+                                    <td th:text="${chart.psAv2}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_ps.js}"></script>
+</body>
+</html>
