@@ -26,6 +26,7 @@
                             <input id="kauK" name="kauK" type="text" required="required" class="form-control">
                         </div>
                     </div>
+                    <hr>
                     <div class="form-group row">
                         <div class="col-2">
                             <button type="button" class="btn btn-outline-secondary" name="prev">
@@ -66,10 +67,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="code : ${codes}">
-                                    <td th:text="${code.id}">empty</td>
-                                    <td th:text="${code.kauN}">empty</td>
-                                    <td th:text="${code.kauK}">empty</td>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.kauN}">empty</td>
+                                    <td th:text="${table.kauK}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

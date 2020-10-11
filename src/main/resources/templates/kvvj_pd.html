@@ -2,11 +2,253 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments :: head"></head>
 <body>
-<th:block th:replace="fragments :: header"></th:block>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Формирование первичных документов</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_pd}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <div class="offset-1 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Документ
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="documents" class="table table-borderless table-striped table-hover">
+                                    <tbody>
+                                        <tr th:each="doc: ${defPrimDocs}">
+                                            <td th:text="${doc.opdK}">empty</td>
+                                            <td th:text="${doc.opdAv1}">empty</td>
+                                            <td th:text="${doc.opdAvt1}">empty</td>
+                                            <td th:text="${doc.opdAv2}">empty</td>
+                                            <td th:text="${doc.opdAvt2}">empty</td>
+                                            <td th:text="${doc.opdAv3}">empty</td>
+                                            <td th:text="${doc.opdAvt3}">empty</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="offset-1 col-2">
+                            <input id="pdDokk" name="pdDokk" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-2">
+                            <input id="pdDokn" name="pdDokn" type="text" class="form-control">
+                        </div>
+                        <div class="col-1 text-center">
+                            от
+                        </div>
+                        <div class="col-3">
+                            <input id="pdDokd" name="pdDokd" type="date" class="form-control">
+                        </div>
+                    </div>
 
 
 
-<th:block th:replace="fragments :: bootstrap_scripts"></th:block>
-<script th:src="@{/js/kvvj_pd.js}"></script>
+                    <div class="form-group row">
+                        <label for="pdAv1" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 1</label>
+                        <div class="col-2">
+                            <input id="pdAv1" name="pdAv1" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-1">
+                            <input id="pdAvt1" name="pdAvt1" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-2">
+                            <select id="pdAk1" name="pdAk1" class="custom-select" required="required">
+
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pdAv2" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 2</label>
+                        <div class="col-2">
+                            <input id="pdAv2" name="pdAv2" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-1">
+                            <input id="pdAvt2" name="pdAvt2" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-2">
+                            <select id="pdAk2" name="pdAk2" class="custom-select" required="required">
+
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pdAv3" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 3</label>
+                        <div class="col-2">
+                            <input id="pdAv3" name="pdAv3" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-1">
+                            <input id="pdAvt3" name="pdAvt3" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-2">
+                            <select id="pdAk3" name="pdAk3" class="custom-select" required="required">
+
+                                <option value="rabbit">Rabbit</option>
+                                <option value="duck">Duck</option>
+                                <option value="fish">Fish</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pdRub" class="offset-1 col-3 col-form-label">kvvj_Сумма</label>
+                        <div class="col-4">
+                            <input id="pdRub" name="pdRub" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="offset-3 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Операция
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="operations" class="table table-borderless table-striped table-hover">
+                                    <tbody>
+                                        <tr th:each="operation: ${operations}">
+                                            <td th:text="${operation.txoK}">empty</td>
+                                            <td th:text="${operation.txoDb}">empty</td>
+                                            <td th:text="${operation.txoDbn}">empty</td>
+                                            <td th:text="${operation.txoKr}">empty</td>
+                                            <td th:text="${operation.txoKrn}">empty</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <input id="pdTo" name="pdTo" type="text" class="form-control" required="required" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <input id="pdDb" name="pdDb" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-3">
+                            <input id="pdDbn" name="pdDbn" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-2 text-center">
+                            /
+                        </div>
+                        <div class="col-2">
+                            <input id="pdKr" name="pdKr" type="text" class="form-control" required="required" readonly>
+                        </div>
+                        <div class="col-3">
+                            <input id="pdKrn" name="pdKrn" type="text" class="form-control" required="required" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary btn-block">Просмотр РЖ</button>
+                        </div>
+                        <div class="offset-2 col-4">
+                            <button type="button" class="btn btn-outline-secondary btn-block">Занести проводку в РЖ</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="button" class="btn btn-outline-secondary btn-block">Очистить РЖ</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_pd/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_pd/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table name="tables" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_pd_0</th>
+                                    <th scope="col">kvvj_pd_dokk</th>
+                                    <th scope="col">kvvj_pd_dokn</th>
+                                    <th scope="col">kvvj_pd_dokd</th>
+                                    <th scope="col">kvvj_pd_av1</th>
+                                    <th scope="col">kvvj_pd_avt1</th>
+                                    <th scope="col">kvvj_pd_ak1</th>
+                                    <th scope="col">kvvj_pd_ak1</th>
+                                    <th scope="col">kvvj_pd_ak1</th>
+                                    <th scope="col">kvvj_pd_ak1</th>
+                                    <th scope="col">kvvj_pd_av2</th>
+                                    <th scope="col">kvvj_pd_avt2</th>
+                                    <th scope="col">kvvj_pd_ak2</th>
+                                    <th scope="col">kvvj_pd_av3</th>
+                                    <th scope="col">kvvj_pd_avt3</th>
+                                    <th scope="col">kvvj_pd_to</th>
+                                    <th scope="col">kvvj_pd_db</th>
+                                    <th scope="col">kvvj_pd_dbn</th>
+                                    <th scope="col">kvvj_pd_kr</th>
+                                    <th scope="col">kvvj_pd_krn</th>
+                                    <th scope="col">kvvj_pd_rub</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.gpdDokk}">empty</td>
+                                    <td th:text="${table.pdDokn}">empty</td>
+                                    <td th:text="${table.pdDokd}">empty</td>
+                                    <td th:text="${table.pdAv1}">empty</td>
+                                    <td th:text="${table.pdAvt1}">empty</td>
+                                    <td th:text="${table.pdAk1}">empty</td>
+                                    <td th:text="${table.pdAv2}">empty</td>
+                                    <td th:text="${table.pdAvt2}">empty</td>
+                                    <td th:text="${table.pdAk2}">empty</td>
+                                    <td th:text="${table.pdAv3}">empty</td>
+                                    <td th:text="${table.pdAvt3}">empty</td>
+                                    <td th:text="${table.pdAk3}">empty</td>
+                                    <td th:text="${table.pdTo}">empty</td>
+                                    <td th:text="${table.pdDb}">empty</td>
+                                    <td th:text="${table.pdDbn}">empty</td>
+                                    <td th:text="${table.pdKr}">empty</td>
+                                    <td th:text="${table.pdKrn}">empty</td>
+                                    <td th:text="${table.pdRub}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_pd.js}"></script>
 </body>
 </html>

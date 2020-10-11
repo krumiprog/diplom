@@ -75,6 +75,7 @@
                         </div>
                         <span id="opdAvt3HelpBlock" class="form-text text-muted">Дебет, Кредит, Х = Д + К</span>
                     </div>
+                    <hr>
                     <div class="form-group row">
                         <div class="col-2">
                             <button type="button" class="btn btn-outline-secondary" name="prev">
@@ -121,16 +122,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="doc : ${docs}">
-                                    <td th:text="${doc.id}">empty</td>
-                                    <td th:text="${doc.opdK}">empty</td>
-                                    <td th:text="${doc.opdN}">empty</td>
-                                    <td th:text="${doc.opdAv1}">empty</td>
-                                    <td th:text="${doc.opdAvt1}">empty</td>
-                                    <td th:text="${doc.opdAv2}">empty</td>
-                                    <td th:text="${doc.opdAvt2}">empty</td>
-                                    <td th:text="${doc.opdAv3}">empty</td>
-                                    <td th:text="${doc.opdAvt3}">empty</td>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.opdK}">empty</td>
+                                    <td th:text="${table.opdN}">empty</td>
+                                    <td th:text="${table.opdAv1}">empty</td>
+                                    <td th:text="${table.opdAvt1}">empty</td>
+                                    <td th:text="${table.opdAv2}">empty</td>
+                                    <td th:text="${table.opdAvt2}">empty</td>
+                                    <td th:text="${table.opdAv3}">empty</td>
+                                    <td th:text="${table.opdAvt3}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

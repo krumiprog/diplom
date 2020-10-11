@@ -50,6 +50,7 @@
                             </select>
                         </div>
                     </div>
+                    <hr>
                     <div class="form-group row">
                         <div class="col-2">
                             <button type="button" class="btn btn-outline-secondary" name="prev">
@@ -93,13 +94,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="chart : ${charts}">
-                                    <td th:text="${chart.id}">empty</td>
-                                    <td th:text="${chart.psS}">empty</td>
-                                    <td th:text="${chart.psN}">empty</td>
-                                    <td th:text="${chart.psTyp}">empty</td>
-                                    <td th:text="${chart.psAv1}">empty</td>
-                                    <td th:text="${chart.psAv2}">empty</td>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.psS}">empty</td>
+                                    <td th:text="${table.psN}">empty</td>
+                                    <td th:text="${table.psTyp}">empty</td>
+                                    <td th:text="${table.psAv1}">empty</td>
+                                    <td th:text="${table.psAv2}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

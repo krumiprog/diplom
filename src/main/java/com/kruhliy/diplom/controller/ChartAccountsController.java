@@ -25,8 +25,8 @@ public class ChartAccountsController {
     @GetMapping
     public String getForm(Model model) {
         Iterable<ChartAccounts> charts = chartAccountsRepository.findAll();
-        model.addAttribute("charts", charts);
         Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
+        model.addAttribute("tables", charts);
         model.addAttribute("types", types);
         return "kvvj_ps";
     }

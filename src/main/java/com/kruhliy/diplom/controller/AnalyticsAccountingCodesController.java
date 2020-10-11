@@ -25,8 +25,8 @@ public class AnalyticsAccountingCodesController {
     @GetMapping
     public String getForm(Model model) {
         Iterable<AnalyticalAccountingCodes> codes = analyticalAccountingCodesRepository.findAll();
-        model.addAttribute("codes", codes);
         Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
+        model.addAttribute("tables", codes);
         model.addAttribute("types", types);
         return "kvvj_kau";
     }

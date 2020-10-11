@@ -24,7 +24,7 @@ function getCellsValue() {
 }
 
 trs.forEach(tr => {
-  tr.addEventListener('dblclick', () => {
+  tr.addEventListener('click', () => {
     let ths = tr.children
     fillForm(ths)
   })

@@ -27,12 +27,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="offset-1 col-2 btn-group dropright btn-block">
+                        <div class="offset-1 col-2 btn-group dropright">
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 kvvj_Дебет
                             </button>
                             <div class="dropdown-menu">
-                                <table name="debet" class="table table-borderless table-hover">
+                                <table name="debet" class="table table-borderless table-striped table-hover">
                                     <tbody>
                                         <tr th:each="chart : ${charts}">
                                             <td th:text="${chart.psS}">empty</td>
@@ -50,12 +50,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="offset-1 col-2 btn-group dropright btn-block">
+                        <div class="offset-1 col-2 btn-group dropright">
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 kvvj_Кредит
                             </button>
                             <div class="dropdown-menu">
-                                <table name="credit" class="table table-borderless table-hover">
+                                <table name="credit" class="table table-borderless table-striped table-hover">
                                     <tbody>
                                         <tr th:each="chart : ${charts}">
                                             <td th:text="${chart.psS}">empty</td>
@@ -72,6 +72,7 @@
                             <input id="txoKrn" name="txoKrn" type="text" class="form-control" required="required" readonly>
                         </div>
                     </div>
+                    <hr>
                     <div class="form-group row">
                         <div class="col-2">
                             <button type="button" class="btn btn-outline-secondary" name="prev">
@@ -103,7 +104,7 @@
             <div class="card-body">
                 <div class="collapse" id="collapseTable">
                     <div class="table-responsive">
-                        <table name="operations" class="table table-sm table-striped table-hover">
+                        <table name="tables" class="table table-sm table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">kvvj_txo_0</th>
@@ -116,14 +117,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="operation : ${operations}">
-                                    <td th:text="${operation.id}">empty</td>
-                                    <td th:text="${operation.txoDokk}">empty</td>
-                                    <td th:text="${operation.txoK}">empty</td>
-                                    <td th:text="${operation.txoDb}">empty</td>
-                                    <td th:text="${operation.txoDbn}">empty</td>
-                                    <td th:text="${operation.txoKr}">empty</td>
-                                    <td th:text="${operation.txoKrn}">empty</td>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.txoDokk}">empty</td>
+                                    <td th:text="${table.txoK}">empty</td>
+                                    <td th:text="${table.txoDb}">empty</td>
+                                    <td th:text="${table.txoDbn}">empty</td>
+                                    <td th:text="${table.txoKr}">empty</td>
+                                    <td th:text="${table.txoKrn}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

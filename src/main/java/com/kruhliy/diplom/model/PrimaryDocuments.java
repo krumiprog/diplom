@@ -70,27 +70,27 @@ public class PrimaryDocuments {
     @Column(name = "kvvj_pd_ak3")
     private String pdAk3;
 
-    // сумма (n8)
+    // операция (c10)
     @Column(name = "kvvj_pd_to")
     private Integer pdTo;
 
-    // операция (c10)
-    @Column(name = "kvvj_pd_db")
-    private String pdDb;
-
     // дебет счет * txo (n2)
-    @Column(name = "kvvj_pd_dbn")
-    private Integer pdDbn;
+    @Column(name = "kvvj_pd_db")
+    private Integer pdDb;
 
     // дебет наименование * txo (c10)
-    @Column(name = "kvvj_pd_kr")
-    private String pdKr;
+    @Column(name = "kvvj_pd_dbn")
+    private String pdDbn;
 
     // кредит * txo (n2)
-    @Column(name = "kvvj_pd_krn")
-    private Integer pdKrn;
+    @Column(name = "kvvj_pd_kr")
+    private Integer pdKr;
 
     // кредит название * txo (c10)
+    @Column(name = "kvvj_pd_krn")
+    private String pdKrn;
+
+    // сумма (n8)
     @Column(name = "kvvj_pd_rub")
     private String pdRub;
 }

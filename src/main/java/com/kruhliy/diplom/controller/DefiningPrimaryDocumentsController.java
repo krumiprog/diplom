@@ -25,8 +25,8 @@ public class DefiningPrimaryDocumentsController {
     @GetMapping
     public String getForm(Model model) {
         Iterable<DefiningPrimaryDocuments> docs = definingPrimaryDocumentsRepository.findAll();
-        model.addAttribute("docs", docs);
         Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
+        model.addAttribute("tables", docs);
         model.addAttribute("types", types);
         return "kvvj_opd";
     }

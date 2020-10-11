@@ -29,10 +29,10 @@ public class TypicalBusinessOperationsController {
     @GetMapping
     public String getForm(Model model) {
         Iterable<TypicalBusinessOperations> operations = typicalBusinessOperationsRepository.findAll();
-        model.addAttribute("operations", operations);
         Iterable<DefiningPrimaryDocuments> documents = definingPrimaryDocumentsRepository.findAll();
-        model.addAttribute("docs", documents);
         Iterable<ChartAccounts> charts = chartAccountsRepository.findAll();
+        model.addAttribute("tables", operations);
+        model.addAttribute("docs", documents);
         model.addAttribute("charts", charts);
         return "kvvj_txo";
     }

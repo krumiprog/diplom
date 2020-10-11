@@ -21,7 +21,7 @@ public class TypesAnalyticsController {
         @GetMapping
         public String getForm(Model model) {
             Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
-            model.addAttribute("types", types);
+            model.addAttribute("tables", types);
             return "kvvj_va";
         }
 
