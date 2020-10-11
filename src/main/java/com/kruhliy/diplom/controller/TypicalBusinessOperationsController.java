@@ -1,8 +1,10 @@
 package com.kruhliy.diplom.controller;
 
+import com.kruhliy.diplom.model.ChartAccounts;
+import com.kruhliy.diplom.model.DefiningPrimaryDocuments;
 import com.kruhliy.diplom.model.TypicalBusinessOperations;
+import com.kruhliy.diplom.repository.ChartAccountsRepository;
 import com.kruhliy.diplom.repository.DefiningPrimaryDocumentsRepository;
-import com.kruhliy.diplom.repository.TypesAnalyticsRepository;
 import com.kruhliy.diplom.repository.TypicalBusinessOperationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,14 +24,16 @@ public class TypicalBusinessOperationsController {
     @Autowired
     private DefiningPrimaryDocumentsRepository definingPrimaryDocumentsRepository;
     @Autowired
-    private TypesAnalyticsRepository typesAnalyticsRepository;
+    private ChartAccountsRepository chartAccountsRepository;
 
     @GetMapping
     public String getForm(Model model) {
-        Iterable<TypicalBusinessOperations> docs = typicalBusinessOperationsRepository.findAll();
-        model.addAttribute("docs", docs);
-//        Iterable<TypesAnalytics> types = typesAnalyticsRepository.findAll();
-//        model.addAttribute("types", types);
+        Iterable<TypicalBusinessOperations> operations = typicalBusinessOperationsRepository.findAll();
+        model.addAttribute("operations", operations);
+        Iterable<DefiningPrimaryDocuments> documents = definingPrimaryDocumentsRepository.findAll();
+        model.addAttribute("docs", documents);
+        Iterable<ChartAccounts> charts = chartAccountsRepository.findAll();
+        model.addAttribute("charts", charts);
         return "kvvj_txo";
     }
 
