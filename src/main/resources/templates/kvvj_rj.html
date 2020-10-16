@@ -2,11 +2,123 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments :: head"></head>
 <body>
-<th:block th:replace="fragments :: header"></th:block>
+    <th:block th:replace="fragments :: header"></th:block>
 
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Регистрационный журнал</h5>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="id">
+                <div class="form-group row">
+                    <label for="rjData" class="offset-1 col-3 col-form-label">kvvj_Дата</label>
+                    <label for="rjDokk" class="offset-1 col-3 col-form-label">kvvj_Документ</label>
+                    <label for="rjTo" class="offset-1 col-3 col-form-label">kvvj_Операция</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <input id="rjData" name="rjData" type="date" class="form-control" readonly>
+                    </div>
+                    <div class="offset-1 col-2">
+                        <input id="rjDokk" name="rjDokk" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-2">
+                        <input id="rjDokn" name="rjDokn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="offset-1 col-3">
+                        <input id="rjTo" name="rjTo" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="rjDokd" class="offset-4 col-1 col-form-label">от</label>
+                    <div class="col-3">
+                        <input id="rjDokd" name="rjDokd" type="date" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="rjDb" class="offset-1 col-3 col-form-label">kvvj_Дебет</label>
+                    <label for="rjKr" class="offset-1 col-3 col-form-label">kvvj_Кредит</label>
+                    <label for="rjRub" class="offset-1 col-3 col-form-label">kvvj_Сумма</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-1">
+                        <input id="rjDb" name="rjDb" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-3">
+                        <input id="rjDbn" name="rjDbn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-1">
+                        <input id="rjKr" name="rjKr" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-3">
+                        <input id="rjKrn" name="rjKrn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="offset-1 col-3">
+                        <input id="rjRub" name="rjRub" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-outline-secondary" name="prev">
+                            &lt;
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" name="next">
+                            &gt;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table name="tables" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_rj_0</th>
+                                    <th scope="col">kvvj_rj_data</th>
+                                    <th scope="col">kvvj_rj_dokk</th>
+                                    <th scope="col">kvvj_rj_dokn</th>
+                                    <th scope="col">kvvj_rj_to</th>
+                                    <th scope="col">kvvj_rj_dokd</th>
+                                    <th scope="col">kvvj_rj_db</th>
+                                    <th scope="col">kvvj_rj_dbn</th>
+                                    <th scope="col">kvvj_rj_kr</th>
+                                    <th scope="col">kvvj_rj_krn</th>
+                                    <th scope="col">kvvj_rj_rub</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.rjData}">empty</td>
+                                    <td th:text="${table.rjDokk}">empty</td>
+                                    <td th:text="${table.rjDokn}">empty</td>
+                                    <td th:text="${table.rjTo}">empty</td>
+                                    <td th:text="${table.rjDokd}">empty</td>
+                                    <td th:text="${table.rjDb}">empty</td>
+                                    <td th:text="${table.rjDbn}">empty</td>
+                                    <td th:text="${table.rjKr}">empty</td>
+                                    <td th:text="${table.rjKrn}">empty</td>
+                                    <td th:text="${table.rjRub}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<th:block th:replace="fragments :: bootstrap_scripts"></th:block>
-<script th:src="@{/js/kvvj_rj.js}"></script>
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_rj.js}"></script>
 </body>
 </html>

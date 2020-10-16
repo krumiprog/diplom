@@ -1,11 +1,7 @@
 package com.kruhliy.diplom.controller;
 
-import com.kruhliy.diplom.model.DefiningPrimaryDocuments;
-import com.kruhliy.diplom.model.PrimaryDocuments;
-import com.kruhliy.diplom.model.TypicalBusinessOperations;
-import com.kruhliy.diplom.repository.DefiningPrimaryDocumentsRepository;
-import com.kruhliy.diplom.repository.PrimaryDocumentsRepository;
-import com.kruhliy.diplom.repository.TypicalBusinessOperationsRepository;
+import com.kruhliy.diplom.model.*;
+import com.kruhliy.diplom.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,19 +19,25 @@ public class PrimaryDocumentsController {
     private PrimaryDocumentsRepository primaryDocumentsRepository;
     @Autowired
     private DefiningPrimaryDocumentsRepository definingPrimaryDocumentsRepository;
-
-
+    @Autowired
+    private AnalyticalAccountingCodesRepository analyticalAccountingCodesRepository;
     @Autowired
     private TypicalBusinessOperationsRepository typicalBusinessOperationsRepository;
+    @Autowired
+    private RegistrationBookRepository registrationBookRepository;
 
     @GetMapping
     public String getForm(Model model) {
         Iterable<PrimaryDocuments> primaryDocs = primaryDocumentsRepository.findAll();
         Iterable<DefiningPrimaryDocuments> defPrimDocs = definingPrimaryDocumentsRepository.findAll();
+        Iterable<AnalyticalAccountingCodes> codes = analyticalAccountingCodesRepository.findAll();
         Iterable<TypicalBusinessOperations> typBusOpers = typicalBusinessOperationsRepository.findAll();
+        Iterable<RegistrationBook> regBook = registrationBookRepository.findAll();
         model.addAttribute("tables", primaryDocs);
         model.addAttribute("defPrimDocs", defPrimDocs);
+        model.addAttribute("codes", codes);
         model.addAttribute("operations", typBusOpers);
+        model.addAttribute("books", regBook);
         return "kvvj_pd";
     }
 

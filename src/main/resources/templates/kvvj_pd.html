@@ -19,6 +19,17 @@
                             </button>
                             <div class="dropdown-menu">
                                 <table name="documents" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_opd_k</th>
+                                            <th scope="col">kvvj_opd_av1</th>
+                                            <th scope="col">kvvj_opd_avt1</th>
+                                            <th scope="col">kvvj_opd_av2</th>
+                                            <th scope="col">kvvj_opd_avt2</th>
+                                            <th scope="col">kvvj_opd_av3</th>
+                                            <th scope="col">kvvj_opd_avt3</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr th:each="doc: ${defPrimDocs}">
                                             <td th:text="${doc.opdK}">empty</td>
@@ -47,56 +58,99 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="pdAv1" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 1</label>
-                        <div class="col-2">
+                        <div class="offset-1 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Вид аналитики 1
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="analytics1" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_kau_n</th>
+                                            <th scope="col">kvvj_kau_k</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="code : ${codes}">
+                                            <td th:text="${code.kauN}">empty</td>
+                                            <td th:text="${code.kauK}">empty</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="offset-1 col-2">
                             <input id="pdAv1" name="pdAv1" type="text" class="form-control" required="required" readonly>
                         </div>
                         <div class="col-1">
                             <input id="pdAvt1" name="pdAvt1" type="text" class="form-control" required="required" readonly>
                         </div>
                         <div class="col-2">
-                            <select id="pdAk1" name="pdAk1" class="custom-select" required="required">
-
-
-                                <option value="rabbit">Rabbit</option>
-                                <option value="duck">Duck</option>
-                                <option value="fish">Fish</option>
-                            </select>
+                            <input id="pdAk1" name="pdAk1" type="text" class="form-control" required="required" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="pdAv2" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 2</label>
-                        <div class="col-2">
-                            <input id="pdAv2" name="pdAv2" type="text" class="form-control" required="required" readonly>
+                        <div class="offset-1 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Вид аналитики 2
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="analytics2" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_kau_n</th>
+                                            <th scope="col">kvvj_kau_k</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="code : ${codes}">
+                                            <td th:text="${code.kauN}">empty</td>
+                                            <td th:text="${code.kauK}">empty</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="offset-1 col-2">
+                            <input id="pdAv2" name="pdAv2" type="text" class="form-control" required="required" readonly onchange="analytics2()">
                         </div>
                         <div class="col-1">
                             <input id="pdAvt2" name="pdAvt2" type="text" class="form-control" required="required" readonly>
                         </div>
                         <div class="col-2">
-                            <select id="pdAk2" name="pdAk2" class="custom-select" required="required">
-
-
-                                <option value="rabbit">Rabbit</option>
-                                <option value="duck">Duck</option>
-                                <option value="fish">Fish</option>
-                            </select>
+                            <input id="pdAk2" name="pdAk2" type="text" class="form-control" required="required" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="pdAv3" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 3</label>
-                        <div class="col-2">
-                            <input id="pdAv3" name="pdAv3" type="text" class="form-control" required="required" readonly>
+                        <div class="offset-1 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Вид аналитики 3
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="analytics3" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_kau_n</th>
+                                            <th scope="col">kvvj_kau_k</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="code : ${codes}">
+                                            <td th:text="${code.kauN}">empty</td>
+                                            <td th:text="${code.kauK}">empty</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="offset-1 col-2">
+                            <input id="pdAv3" name="pdAv3" type="text" class="form-control" required="required" readonly onchange="analytics3()">
                         </div>
                         <div class="col-1">
                             <input id="pdAvt3" name="pdAvt3" type="text" class="form-control" required="required" readonly>
                         </div>
                         <div class="col-2">
-                            <select id="pdAk3" name="pdAk3" class="custom-select" required="required">
-
-                                <option value="rabbit">Rabbit</option>
-                                <option value="duck">Duck</option>
-                                <option value="fish">Fish</option>
-                            </select>
+                            <input id="pdAk3" name="pdAk3" type="text" class="form-control" required="required" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -113,6 +167,15 @@
                             </button>
                             <div class="dropdown-menu">
                                 <table name="operations" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_txo_k</th>
+                                            <th scope="col">kvvj_txo_db</th>
+                                            <th scope="col">kvvj_txo_dbn</th>
+                                            <th scope="col">kvvj_txo_kr</th>
+                                            <th scope="col">kvvj_txo_krn</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr th:each="operation: ${operations}">
                                             <td th:text="${operation.txoK}">empty</td>
@@ -148,13 +211,49 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-2">
-                            <button type="button" class="btn btn-outline-secondary btn-block" name="watch_rj" onclick="watchRj()">Просмотр РЖ</button>
+                            <button type="button" class="btn btn-outline-secondary btn-block" name="watch_rj" data-toggle="collapse" data-target="#collapseBook" aria-expanded="false" aria-controls="collapseBook">Просмотр РЖ</button>
                         </div>
                         <div class="offset-2 col-4">
-                            <button type="button" class="btn btn-outline-secondary btn-block" name="send_rj">Занести проводку в РЖ</button>
+                            <button type="button" class="btn btn-outline-success btn-block" name="send_rj" onclick="sendRj()">Занести проводку в РЖ</button>
                         </div>
                         <div class="offset-2 col-2">
-                            <button type="button" class="btn btn-outline-secondary btn-block" name="clean_rj" onclick="cleanRj()">Очистить РЖ</button>
+                            <button type="button" class="btn btn-outline-danger btn-block" name="clean_rj" onclick="deleteRj()">Очистить РЖ</button>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseBook">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">kvvj_rj_0</th>
+                                        <th scope="col">kvvj_rj_data</th>
+                                        <th scope="col">kvvj_rj_dokk</th>
+                                        <th scope="col">kvvj_rj_dokn</th>
+                                        <th scope="col">kvvj_rj_dokd</th>
+                                        <th scope="col">kvvj_rj_to</th>
+                                        <th scope="col">kvvj_rj_db</th>
+                                        <th scope="col">kvvj_rj_dbn</th>
+                                        <th scope="col">kvvj_rj_kr</th>
+                                        <th scope="col">kvvj_rj_krn</th>
+                                        <th scope="col">kvvj_rj_rub</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="book : ${books}">
+                                        <td th:text="${book.id}">empty</td>
+                                        <td th:text="${book.rjData}">empty</td>
+                                        <td th:text="${book.rjDokk}">empty</td>
+                                        <td th:text="${book.rjDokn}">empty</td>
+                                        <td th:text="${book.rjDokd}">empty</td>
+                                        <td th:text="${book.rjTo}">empty</td>
+                                        <td th:text="${book.rjDb}">empty</td>
+                                        <td th:text="${book.rjDbn}">empty</td>
+                                        <td th:text="${book.rjKr}">empty</td>
+                                        <td th:text="${book.rjKrn}">empty</td>
+                                        <td th:text="${book.rjRub}">empty</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <hr>

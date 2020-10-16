@@ -16,7 +16,7 @@ public class RegistrationBookRestController {
 
     @PostMapping(consumes = "application/json")
     public ResponseEntity<?> create(@RequestBody RegistrationBook registrationBook) {
-        System.out.println("===========" + registrationBook);
+//        System.out.println("===========" + registrationBook);
 
         if (registrationBook.getId() == null) {
             registrationBookRepository.save(registrationBook);
@@ -24,10 +24,20 @@ public class RegistrationBookRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/hello")
-    public ResponseEntity<?> create(@RequestBody String hello) {
-        System.out.println("=========== " + hello);
+    @DeleteMapping
+    public ResponseEntity<?> deleteAll() {
+//        System.out.println("------------ delete all");
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        registrationBookRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
+
+//    @PostMapping("/hello")
+//    public ResponseEntity<?> create(@RequestBody String hello) {
+//        System.out.println("=========== " + hello);
+//
+//        return new ResponseEntity<>(HttpStatus.CREATED);
+//    }
 }

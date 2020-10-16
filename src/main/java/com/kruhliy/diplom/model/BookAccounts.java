@@ -3,6 +3,7 @@ package com.kruhliy.diplom.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,6 +24,8 @@ public class BookAccounts {
     private Long id;
 
     // дата операции
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_ks_data")
     private Date ksData;
 
@@ -35,6 +38,8 @@ public class BookAccounts {
     private Integer ksDokn;
 
     // дата документа
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_ks_dokd")
     private Date ksDokd;
 

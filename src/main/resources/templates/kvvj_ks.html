@@ -2,11 +2,129 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments :: head"></head>
 <body>
-<th:block th:replace="fragments :: header"></th:block>
+    <th:block th:replace="fragments :: header"></th:block>
 
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Книга счетов</h5>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="id">
+                <div class="form-group row">
+                    <label for="ksData" class="offset-1 col-3 col-form-label">kvvj_Дата</label>
+                    <label for="ksDokk" class="offset-1 col-3 col-form-label">kvvj_Документ</label>
+                    <label for="ksTo" class="offset-1 col-3 col-form-label">kvvj_Операция</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <input id="ksData" name="ksData" type="date" class="form-control" readonly>
+                    </div>
+                    <div class="offset-1 col-2">
+                        <input id="ksDokk" name="ksDokk" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-2">
+                        <input id="ksDokn" name="ksDokn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="offset-1 col-3">
+                        <input id="ksTo" name="ksTo" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ksDokd" class="offset-4 col-1 col-form-label">от</label>
+                    <div class="col-3">
+                        <input id="ksDokd" name="ksDokd" type="date" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ksS" class="offset-1 col-3 col-form-label">kvvj_Счёт</label>
+                    <label for="ksKs" class="offset-1 col-3 col-form-label">kvvj_Корреспонденский счёт</label>
+                    <label for="ksDb" class=" col-2 col-form-label">kvvj_Дебет</label>
+                    <label for="ksKr" class="col-2 col-form-label">kvvj_Кредит</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-1">
+                        <input id="ksS" name="ksS" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-3">
+                        <input id="ksSn" name="ksSn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-1">
+                        <input id="ksKs" name="ksKs" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-3">
+                        <input id="ksKsn" name="ksKsn" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-2">
+                        <input id="ksDb" name="ksDb" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="col-2">
+                        <input id="ksKr" name="ksKr" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-outline-secondary" name="prev">
+                            &lt;
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" name="next">
+                            &gt;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table name="tables" class="table table-sm table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">kvvj_ks_0</th>
+                                <th scope="col">kvvj_ks_data</th>
+                                <th scope="col">kvvj_ks_dokk</th>
+                                <th scope="col">kvvj_ks_dokn</th>
+                                <th scope="col">kvvj_ks_dokd</th>
+                                <th scope="col">kvvj_ks_to</th>
+                                <th scope="col">kvvj_ks_s</th>
+                                <th scope="col">kvvj_ks_sn</th>
+                                <th scope="col">kvvj_ks_ks</th>
+                                <th scope="col">kvvj_ks_ksn</th>
+                                <th scope="col">kvvj_ks_db</th>
+                                <th scope="col">kvvj_ks_kr</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="table : ${tables}">
+                                <td th:text="${table.id}">empty</td>
+                                <td th:text="${table.ksData}">empty</td>
+                                <td th:text="${table.ksDokk}">empty</td>
+                                <td th:text="${table.ksDokn}">empty</td>
+                                <td th:text="${table.ksTo}">empty</td>
+                                <td th:text="${table.ksDokd}">empty</td>
+                                <td th:text="${table.ksS}">empty</td>
+                                <td th:text="${table.ksSn}">empty</td>
+                                <td th:text="${table.ksKs}">empty</td>
+                                <td th:text="${table.ksKsn}">empty</td>
+                                <td th:text="${table.ksDb}">empty</td>
+                                <td th:text="${table.ksKr}">empty</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<th:block th:replace="fragments :: bootstrap_scripts"></th:block>
-<script th:src="@{/js/kvvj_ks.js}"></script>
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_ks.js}"></script>
 </body>
 </html>
