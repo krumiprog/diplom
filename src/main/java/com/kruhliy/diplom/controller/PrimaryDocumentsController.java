@@ -32,7 +32,6 @@ public class PrimaryDocumentsController {
     public String getForm(Model model) {
         Iterable<PrimaryDocuments> primaryDocs = primaryDocumentsRepository.findAll();
         Iterable<DefiningPrimaryDocuments> defPrimDocs = definingPrimaryDocumentsRepository.findAll();
-
         Iterable<TypicalBusinessOperations> typBusOpers = typicalBusinessOperationsRepository.findAll();
         model.addAttribute("tables", primaryDocs);
         model.addAttribute("defPrimDocs", defPrimDocs);

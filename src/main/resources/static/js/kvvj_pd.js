@@ -24,6 +24,54 @@ let prevBtn = document.querySelector('button[name=prev]')
 let nextBtn = document.querySelector('button[name=next]')
 let rowCurIndex = -1;
 
+
+
+function watchRj() {
+    registrationBook = {
+//        id: null,
+        rjData: "2020-11-11",
+        rjDokk: gpdDokk.value,
+        rjDokn: parseInt(pdDokn.value),
+        rjDokd: pdDokd.value,
+        rjTo: pdTo.value,
+        rjDb: parseInt(pdDb.value),
+        rjDbn: pdDbn.value,
+        rjKr: parseInt(pdKr.value),
+        rjKrn: pdKrn.value,
+        rjRub: parseInt(pdRub.value)
+    }
+
+    console.log(registrationBook)
+    console.log(JSON.stringify(registrationBook))
+
+    fetch("/rest/kvvj_rj", {
+        method: 'POST',
+        body: JSON.stringify(registrationBook),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+//        credentials: 'include',
+    }).then(response => console.log("Response status: ", response.status));
+}
+
+function cleanRj() {
+    let hello = 'Hello, world!'
+
+    console.log(hello)
+    console.log(JSON.stringify(hello))
+
+    fetch("/rest/kvvj_rj/hello", {
+        method: 'POST',
+        body: JSON.stringify(hello),
+        headers: {
+           'Content-type': 'application/json; charset=UTF-8'
+        }
+//        credentials: 'include'
+    }).then(response => console.log('STATUS: ', response.status))
+}
+
+
+
 function fillForm(ths) {
     id.value = ths[0].textContent
     gpdDokk.value = ths[1].textContent
@@ -38,12 +86,12 @@ function fillForm(ths) {
     pdAv3.value = ths[10].textContent
     pdAvt3.value = ths[11].textContent
     pdAk3.value = ths[12].textContent
-    pdTo.value = ths[13].textContent
-    pdDb.value = ths[14].textContent
-    pdDbn.value = ths[15].textContent
-    pdKr.value = ths[16].textContent
-    pdKrn.value = ths[17].textContent
-    pdRub.value = ths[18].textContent
+    pdRub.value = ths[13].textContent
+    pdTo.value = ths[14].textContent
+    pdDb.value = ths[15].textContent
+    pdDbn.value = ths[16].textContent
+    pdKr.value = ths[17].textContent
+    pdKrn.value = ths[18].textContent
 }
 
 function getCellsValue() {
@@ -64,12 +112,12 @@ function getCellsValue() {
     pdAv3.value = ''
     pdAvt3.value = ''
     pdAk3.value = ''
+    pdRub.value = ''
     pdTo.value = ''
     pdDb.value = ''
     pdDbn.value = ''
     pdKr.value = ''
     pdKrn.value = ''
-    pdRub.value = ''
   }
 }
 
@@ -115,3 +163,6 @@ nextBtn.addEventListener('click', () => {
   rowCurIndex < trs.length ? rowCurIndex++ : trs.length - 1
   getCellsValue()
 })
+
+
+

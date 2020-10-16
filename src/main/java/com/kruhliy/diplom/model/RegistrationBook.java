@@ -1,8 +1,10 @@
 package com.kruhliy.diplom.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,6 +25,9 @@ public class RegistrationBook {
     private Long id;
 
     // дата операции (d)
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_rj_data")
     private Date rjData;
 
@@ -35,6 +40,9 @@ public class RegistrationBook {
     private Integer rjDokn;
 
     // дата документа (d)
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_rj_dokd")
     private Date rjDokd;
 
@@ -61,4 +69,21 @@ public class RegistrationBook {
     // Сумма (n10)
     @Column(name = "kvvj_rj_rub")
     private Integer rjRub;
+
+    @Override
+    public String toString() {
+        return "RegistrationBook{" +
+                "id=" + id +
+                ", rjData=" + rjData +
+                ", rjDokk='" + rjDokk + '\'' +
+                ", rjDokn=" + rjDokn +
+                ", rjDokd=" + rjDokd +
+                ", rjTo='" + rjTo + '\'' +
+                ", rjDb=" + rjDb +
+                ", rjDbn='" + rjDbn + '\'' +
+                ", rjKr=" + rjKr +
+                ", rjKrn='" + rjKrn + '\'' +
+                ", rjRub=" + rjRub +
+                '}';
+    }
 }

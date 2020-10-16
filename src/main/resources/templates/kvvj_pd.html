@@ -46,9 +46,6 @@
                             <input id="pdDokd" name="pdDokd" type="date" class="form-control">
                         </div>
                     </div>
-
-
-
                     <div class="form-group row">
                         <label for="pdAv1" class="offset-1 col-3 col-form-label">kvvj_Вид аналитики 1</label>
                         <div class="col-2">
@@ -151,13 +148,13 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-2">
-                            <button type="button" class="btn btn-outline-secondary btn-block">Просмотр РЖ</button>
+                            <button type="button" class="btn btn-outline-secondary btn-block" name="watch_rj" onclick="watchRj()">Просмотр РЖ</button>
                         </div>
                         <div class="offset-2 col-4">
-                            <button type="button" class="btn btn-outline-secondary btn-block">Занести проводку в РЖ</button>
+                            <button type="button" class="btn btn-outline-secondary btn-block" name="send_rj">Занести проводку в РЖ</button>
                         </div>
                         <div class="offset-2 col-2">
-                            <button type="button" class="btn btn-outline-secondary btn-block">Очистить РЖ</button>
+                            <button type="button" class="btn btn-outline-secondary btn-block" name="clean_rj" onclick="cleanRj()">Очистить РЖ</button>
                         </div>
                     </div>
                     <hr>
@@ -202,26 +199,24 @@
                                     <th scope="col">kvvj_pd_av1</th>
                                     <th scope="col">kvvj_pd_avt1</th>
                                     <th scope="col">kvvj_pd_ak1</th>
-                                    <th scope="col">kvvj_pd_ak1</th>
-                                    <th scope="col">kvvj_pd_ak1</th>
-                                    <th scope="col">kvvj_pd_ak1</th>
                                     <th scope="col">kvvj_pd_av2</th>
                                     <th scope="col">kvvj_pd_avt2</th>
                                     <th scope="col">kvvj_pd_ak2</th>
                                     <th scope="col">kvvj_pd_av3</th>
                                     <th scope="col">kvvj_pd_avt3</th>
+                                    <th scope="col">kvvj_pd_ak3</th>
+                                    <th scope="col">kvvj_pd_rub</th>
                                     <th scope="col">kvvj_pd_to</th>
                                     <th scope="col">kvvj_pd_db</th>
                                     <th scope="col">kvvj_pd_dbn</th>
                                     <th scope="col">kvvj_pd_kr</th>
                                     <th scope="col">kvvj_pd_krn</th>
-                                    <th scope="col">kvvj_pd_rub</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="table : ${tables}">
                                     <td th:text="${table.id}">empty</td>
-                                    <td th:text="${table.gpdDokk}">empty</td>
+                                    <td th:text="${table.pdDokk}">empty</td>
                                     <td th:text="${table.pdDokn}">empty</td>
                                     <td th:text="${table.pdDokd}">empty</td>
                                     <td th:text="${table.pdAv1}">empty</td>
@@ -233,12 +228,12 @@
                                     <td th:text="${table.pdAv3}">empty</td>
                                     <td th:text="${table.pdAvt3}">empty</td>
                                     <td th:text="${table.pdAk3}">empty</td>
+                                    <td th:text="${table.pdRub}">empty</td>
                                     <td th:text="${table.pdTo}">empty</td>
                                     <td th:text="${table.pdDb}">empty</td>
                                     <td th:text="${table.pdDbn}">empty</td>
                                     <td th:text="${table.pdKr}">empty</td>
                                     <td th:text="${table.pdKrn}">empty</td>
-                                    <td th:text="${table.pdRub}">empty</td>
                                 </tr>
                             </tbody>
                         </table>

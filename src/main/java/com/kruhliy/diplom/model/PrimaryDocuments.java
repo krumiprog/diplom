@@ -3,6 +3,7 @@ package com.kruhliy.diplom.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -31,6 +32,8 @@ public class PrimaryDocuments {
     private Integer pdDokn;
 
     // дата документа (d)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_pd_dokd")
     private Date pdDokd;
 
@@ -72,7 +75,7 @@ public class PrimaryDocuments {
 
     // операция (c10)
     @Column(name = "kvvj_pd_to")
-    private Integer pdTo;
+    private String pdTo;
 
     // дебет счет * txo (n2)
     @Column(name = "kvvj_pd_db")
@@ -92,5 +95,30 @@ public class PrimaryDocuments {
 
     // сумма (n8)
     @Column(name = "kvvj_pd_rub")
-    private String pdRub;
+    private Integer pdRub;
+
+    @Override
+    public String toString() {
+        return "PrimaryDocuments{" +
+                "id=" + id +
+                ", pdDokk='" + pdDokk + '\'' +
+                ", pdDokn=" + pdDokn +
+                ", pdDokd=" + pdDokd +
+                ", pdAv1='" + pdAv1 + '\'' +
+                ", pdAvt1='" + pdAvt1 + '\'' +
+                ", pdAk1='" + pdAk1 + '\'' +
+                ", pdAv2='" + pdAv2 + '\'' +
+                ", pdAvt2='" + pdAvt2 + '\'' +
+                ", pdAk2='" + pdAk2 + '\'' +
+                ", pdAv3='" + pdAv3 + '\'' +
+                ", pdAvt3='" + pdAvt3 + '\'' +
+                ", pdAk3='" + pdAk3 + '\'' +
+                ", pdTo='" + pdTo + '\'' +
+                ", pdDb=" + pdDb +
+                ", pdDbn='" + pdDbn + '\'' +
+                ", pdKr=" + pdKr +
+                ", pdKrn='" + pdKrn + '\'' +
+                ", pdRub='" + pdRub + '\'' +
+                '}';
+    }
 }
