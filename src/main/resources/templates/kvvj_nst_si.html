@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Определение отчётных форм</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_nst/kvvj_nst_si}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+
+                        <label for="nstDatas" class="offset-1 col-2 col-form-label text-right">kvvj_Интервал с</label>
+                        <div class="col-3">
+                            <input id="nstDatas" name="nstDatas" type="date" class="form-control" required="required" th:value="${dateS}">
+                        </div>
+                        <label for="nstDatad" class="col-1 col-form-label text-right">до</label>
+                        <div class="col-3">
+                            <input id="nstDatad" name="nstDatad" type="date" class="form-control" required="required" th:value="${dateD}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-3 col-2 btn-group dropright">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                kvvj_Счёт
+                            </button>
+                            <div class="dropdown-menu">
+                                <table name="documents" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">kvvj_ps_s</th>
+                                        <th scope="col">kvvj_ps_n</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="chart: ${charts}">
+                                        <td th:text="${chart.psS}">empty</td>
+                                        <td th:text="${chart.psN}">empty</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <input id="nstS" name="nstS" type="text" class="form-control" required="required" th:value="${nstS}" readonly>
+                        </div>
+                        <div class="col-3">
+                            <input id="nstSn" name="nstSn" type="text" class="form-control" required="required" th:value="${nstSn}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-10 col-2">
+                            <button name="submit" type="submit" class="btn btn-outline-success btn-block">Добавить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_nst_si.js}"></script>
+</body>
+</html>

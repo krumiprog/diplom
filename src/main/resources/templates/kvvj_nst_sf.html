@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Настройка АРМа</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_nst/kvvj_nst_sf}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label for="nstFirma" class="offset-3 col-3 col-form-label text-right">kvvj_Название организации</label>
+                        <div class="col-3">
+                            <input id="nstFirma" name="nstFirma" type="text" class="form-control" required="required" th:value="${nstFirma}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-10 col-2">
+                            <button name="submit" type="submit" class="btn btn-outline-success btn-block">Добавить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+</body>
+</html>

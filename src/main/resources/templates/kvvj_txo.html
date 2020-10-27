@@ -33,6 +33,12 @@
                             </button>
                             <div class="dropdown-menu">
                                 <table name="debet" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">kvvj_ps_s</th>
+                                            <th scope="col">kvvj_ps_n</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr th:each="chart : ${charts}">
                                             <td th:text="${chart.psS}">empty</td>
@@ -56,6 +62,12 @@
                             </button>
                             <div class="dropdown-menu">
                                 <table name="credit" class="table table-borderless table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">kvvj_ps_s</th>
+                                        <th scope="col">kvvj_ps_n</th>
+                                    </tr>
+                                    </thead>
                                     <tbody>
                                         <tr th:each="chart : ${charts}">
                                             <td th:text="${chart.psS}">empty</td>

@@ -96,29 +96,4 @@ public class PrimaryDocuments {
     // сумма (n8)
     @Column(name = "kvvj_pd_rub")
     private Integer pdRub;
-
-    @Override
-    public String toString() {
-        return "PrimaryDocuments{" +
-                "id=" + id +
-                ", pdDokk='" + pdDokk + '\'' +
-                ", pdDokn=" + pdDokn +
-                ", pdDokd=" + pdDokd +
-                ", pdAv1='" + pdAv1 + '\'' +
-                ", pdAvt1='" + pdAvt1 + '\'' +
-                ", pdAk1='" + pdAk1 + '\'' +
-                ", pdAv2='" + pdAv2 + '\'' +
-                ", pdAvt2='" + pdAvt2 + '\'' +
-                ", pdAk2='" + pdAk2 + '\'' +
-                ", pdAv3='" + pdAv3 + '\'' +
-                ", pdAvt3='" + pdAvt3 + '\'' +
-                ", pdAk3='" + pdAk3 + '\'' +
-                ", pdTo='" + pdTo + '\'' +
-                ", pdDb=" + pdDb +
-                ", pdDbn='" + pdDbn + '\'' +
-                ", pdKr=" + pdKr +
-                ", pdKrn='" + pdKrn + '\'' +
-                ", pdRub='" + pdRub + '\'' +
-                '}';
-    }
 }

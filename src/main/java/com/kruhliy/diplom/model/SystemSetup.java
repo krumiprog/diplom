@@ -1,8 +1,10 @@
 package com.kruhliy.diplom.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,14 +25,20 @@ public class SystemSetup {
     private Long id;
 
     // дата текущая (d)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_nst_datat")
     private Date nstDatat;
 
     // интервал с (d)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_nst_datas")
     private Date nstDatas;
 
     // интервал до (d)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_nst_datad")
     private Date nstDatad;
 
