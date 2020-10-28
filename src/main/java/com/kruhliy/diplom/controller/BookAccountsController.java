@@ -7,16 +7,12 @@ import com.kruhliy.diplom.repository.BookAccountsRepository;
 import com.kruhliy.diplom.repository.RegistrationBookRepository;
 import com.kruhliy.diplom.repository.SystemSetupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -90,8 +86,61 @@ public class BookAccountsController {
             model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
             model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
 
+            List<BookAccounts> allByKsSAndKsDataBetween = bookAccountsRepository.findAllByKsSAndKsDataBetween(
+                    sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
+            model.addAttribute("tables", allByKsSAndKsDataBetween);
 
+            Integer ksDbSum = allByKsSAndKsDataBetween.stream().mapToInt(BookAccounts::getKsDb).sum();
+            Integer ksKrSum = allByKsSAndKsDataBetween.stream().mapToInt(BookAccounts::getKsKr).sum();
+            model.addAttribute("ksDbSum", ksDbSum);
+            model.addAttribute("ksKrSum", ksKrSum);
         }
         return "kvvj_ks_qo";
+    }
+
+    @GetMapping("kvvj_ks_qj")
+    public String getOrderLog(Model model) {
+        Optional<SystemSetup> sysSetup = systemSetupRepository.findById(1L);
+        if (sysSetup.isPresent()) {
+            model.addAttribute("nstS", sysSetup.get().getNstS());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+
+            String[][] allUtilities = bookAccountsRepository.findOrderLog(
+                    sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
+
+            System.out.println("jurnal");
+            for (String[] allUtility : allUtilities) {
+                for (String s : allUtility) {
+                    System.out.print(s);
+                    System.out.print(' ');
+                }
+                System.out.println();
+            }
+        }
+        return "kvvj_ks_qj";
+    }
+
+    @GetMapping("kvvj_ks_qv")
+    public String getBalanceSheet(Model model) {
+        Optional<SystemSetup> sysSetup = systemSetupRepository.findById(1L);
+        if (sysSetup.isPresent()) {
+            model.addAttribute("nstS", sysSetup.get().getNstS());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+
+            String[][] allUtilities = bookAccountsRepository.findBalanceSheet(
+                    sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
+
+            System.out.println("balance");
+            for (String[] allUtility : allUtilities) {
+                for (String s : allUtility) {
+                    System.out.print(s);
+                    System.out.print(' ');
+                }
+                System.out.println();
+            }
+        }
+        return "kvvj_ks_qv";
     }
 }

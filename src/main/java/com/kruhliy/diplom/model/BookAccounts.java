@@ -73,4 +73,14 @@ public class BookAccounts {
     // сумма кр
     @Column(name = "kvvj_ks_kr")
     private Integer ksKr;
+
+
+
+    @Override
+    public String toString() {
+        return "BookAccounts{" +
+                "ksData=" + ksData +
+                ", ksS=" + ksS +
+                '}';
+    }
 }
