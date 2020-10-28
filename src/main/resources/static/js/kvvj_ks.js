@@ -28,6 +28,7 @@ function fillForm(ths) {
     ksKs.value = ths[8].textContent
     ksKsn.value = ths[9].textContent
     ksDb.value = ths[10].textContent
+    ksKr.value = ths[11].textContent
 }
 
 function getCellsValue() {
@@ -46,6 +47,7 @@ function getCellsValue() {
     ksKs.value = ''
     ksKsn.value = ''
     ksDb.value = ''
+    ksKr.value = ''
   }
 }
 

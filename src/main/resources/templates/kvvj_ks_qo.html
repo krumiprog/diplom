@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Оборотно-сальдовая ведомость</h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label text-right" for="nstS">По счёту</label>
+                    <div class="col-2">
+                        <input id="nstS" name="nstS" type="text" class="form-control" th:value="${nstS}" readonly>
+                    </div>
+                    <label class="col-2 col-form-label text-right" for="nstDatas">За интервал с</label>
+                    <div class="col-2">
+                        <input id="nstDatas" name="nstDatas" type="text" class="form-control" th:value="${nstDatas}" readonly>
+                    </div>
+                    <label class="col-1 col-form-label text-right" for="nstDatad">до</label>
+                    <div class="col-2">
+                        <input id="nstDatad" name="nstDatad" type="text" class="form-control" th:value="${nstDatas}" readonly>
+                    </div>
+                </div>
+                <table name="tables" class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Код</th>
+                            <th scope="col">№</th>
+                            <th scope="col">Дата док.</th>
+                            <th scope="col">Операция</th>
+                            <th scope="col">Счёт</th>
+                            <th scope="col">Кор. счёт</th>
+                            <th scope="col">Оборот</th>
+                            <th scope="col">Исходящие</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="table : ${tables}">
+                            <td th:text="${table.ksData}">empty</td>
+                            <td th:text="${table.ksDokk}">empty</td>
+                            <td th:text="${table.ksDokn}">empty</td>
+                            <td th:text="${table.ksDokd}">empty</td>
+                            <td th:text="${table.ksTo}">empty</td>
+                            <td th:text="${table.ksS}">empty</td>
+                            <td th:text="${table.ksKs}">empty</td>
+                            <td th:text="${table.ksDb}">empty</td>
+                            <td th:text="${table.ksKr}">empty</td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold" colspan="7">Итого по счёту</td>
+                            <td th:text="${ksDbSum}">empty</td>
+                            <td th:text="${ksKrSum}">empty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+</body>
+</html>

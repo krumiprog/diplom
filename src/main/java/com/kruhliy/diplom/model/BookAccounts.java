@@ -1,5 +1,6 @@
 package com.kruhliy.diplom.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ public class BookAccounts {
 
     // дата операции
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_ks_data")
     private Date ksData;
@@ -39,6 +41,7 @@ public class BookAccounts {
 
     // дата документа
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "kvvj_ks_dokd")
     private Date ksDokd;

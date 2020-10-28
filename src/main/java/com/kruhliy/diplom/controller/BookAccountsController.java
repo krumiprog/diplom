@@ -2,8 +2,10 @@ package com.kruhliy.diplom.controller;
 
 import com.kruhliy.diplom.model.BookAccounts;
 import com.kruhliy.diplom.model.RegistrationBook;
+import com.kruhliy.diplom.model.SystemSetup;
 import com.kruhliy.diplom.repository.BookAccountsRepository;
 import com.kruhliy.diplom.repository.RegistrationBookRepository;
+import com.kruhliy.diplom.repository.SystemSetupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/kvvj_ks")
@@ -24,6 +27,8 @@ public class BookAccountsController {
     private BookAccountsRepository bookAccountsRepository;
     @Autowired
     private RegistrationBookRepository registrationBookRepository;
+    @Autowired
+    private SystemSetupRepository systemSetupRepository;
 
     @GetMapping
     public String getForm(Model model) {
@@ -68,5 +73,25 @@ public class BookAccountsController {
             });
         }
         return "redirect:/";
+    }
+
+    @GetMapping("kvvj_ks_qx")
+    public String getBookForPrint(Model model) {
+        Iterable<BookAccounts> all = bookAccountsRepository.findAll();
+        model.addAttribute("tables", all);
+        return "kvvj_ks_qx";
+    }
+
+    @GetMapping("kvvj_ks_qo")
+    public String getCapitalBalanceSheet(Model model) {
+        Optional<SystemSetup> sysSetup = systemSetupRepository.findById(1L);
+        if (sysSetup.isPresent()) {
+            model.addAttribute("nstS", sysSetup.get().getNstS());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
+            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+
+
+        }
+        return "kvvj_ks_qo";
     }
 }
