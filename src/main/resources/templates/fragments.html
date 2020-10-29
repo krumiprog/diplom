@@ -68,17 +68,17 @@
                         <a class="dropdown-item" href="/kvvj_opd">kvvj_Определение первичных документов</a>
                         <a class="dropdown-item" href="/kvvj_txo">kvvj_Типовые хозяйственные операции</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/kvvj_nst/kvvj_nst_sf">kvvj_Настройки АРМа</a>
+                        <a class="dropdown-item" href="/kvvj_nst/kvvj_nst_sf">kvvj_Настройки АРМ</a>
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Username
+                        [[${#httpServletRequest.remoteUser}]]
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="user">
-                        <a class="dropdown-item" href="#">kvvj_Администрирование</a>
+                        <a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_ADMIN')">kvvj_Администрирование</a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-item">
                             <form method="post" th:action="@{/logout}">

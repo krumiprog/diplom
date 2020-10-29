@@ -108,15 +108,13 @@ public class BookAccountsController {
 
             String[][] allUtilities = bookAccountsRepository.findOrderLog(
                     sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
+            model.addAttribute("tables", allUtilities);
 
-            System.out.println("jurnal");
-            for (String[] allUtility : allUtilities) {
-                for (String s : allUtility) {
-                    System.out.print(s);
-                    System.out.print(' ');
-                }
-                System.out.println();
+            int ksKrSum = 0;
+            for (String[] str : allUtilities) {
+                ksKrSum += Integer.parseInt(str[2]);
             }
+            model.addAttribute("ksKrSum", ksKrSum);
         }
         return "kvvj_ks_qj";
     }
@@ -131,15 +129,13 @@ public class BookAccountsController {
 
             String[][] allUtilities = bookAccountsRepository.findBalanceSheet(
                     sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
+            model.addAttribute("tables", allUtilities);
 
-            System.out.println("balance");
-            for (String[] allUtility : allUtilities) {
-                for (String s : allUtility) {
-                    System.out.print(s);
-                    System.out.print(' ');
-                }
-                System.out.println();
+            int ksDbSum = 0;
+            for (String[] str : allUtilities) {
+                ksDbSum += Integer.parseInt(str[2]);
             }
+            model.addAttribute("ksDbSum", ksDbSum);
         }
         return "kvvj_ks_qv";
     }
