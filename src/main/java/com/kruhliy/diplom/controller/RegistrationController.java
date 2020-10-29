@@ -37,12 +37,7 @@ public class RegistrationController {
         }
 
         user.setRoles(Arrays.stream(Role.values()).collect(Collectors.toSet()));
-//        user.setPassword(passwordEncoder.encode(user.getUsername()));
-//        userRepository.save(user);
-
-
-
-        user.setPassword(passwordEncoder.encode(user.getUsername()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 //        user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head"></head>
+<body>
+    <th:block th:replace="fragments :: header"></th:block>
+
+    <div class="container">
+        <div class="card my-3 shadow">
+            <div class="card-header text-center">
+                <h5 class="card-title">kvvj_Администрирование</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/kvvj_admin}">
+                    <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right" for="username">kvvj_Имя пользователя</label>
+                        <div class="col-3">
+                            <input id="username" name="username" type="text" class="form-control" th:text="${username}">
+                        </div>
+                        <label class="col-2 col-form-label text-right" for="password">kvvj_Пароль</label>
+                        <div class="col-3">
+                            <input id="password" name="password" type="password" class="form-control" th:text="${password}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="offset-1 col-2 col-form-label text-right">kvvj_Полномочия</label>
+                        <div class="form-group">
+                            <div class="form-check offset-1">
+                                <input class="form-check-input" type="checkbox" id="user" name="roles" value="USER">
+                                <label class="form-check-label" for="user">пользователь</label>
+                            </div>
+                            <div class="form-check offset-1">
+                                <input class="form-check-input" type="checkbox" id="admin" name="roles" value="ADMIN">
+                                <label class="form-check-label" for="admin">администратор</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-secondary" name="prev">
+                                &lt;
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" name="next">
+                                &gt;
+                            </button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" class="btn btn-outline-success btn-block" name="submit">Добавить</button>
+                        </div>
+                        <div class="offset-2 col-2">
+                            <button type="submit" th:formaction="@{/kvvj_admin/update}" class="btn btn-outline-primary btn-block" name="update">Обновить</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" th:formaction="@{/kvvj_admin/delete}" class="btn btn-outline-danger btn-block" name="delete">Удалить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="col-2 mt-4">
+                <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                    Выбрать
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="collapse" id="collapseTable">
+                    <div class="table-responsive">
+                        <table name="tables" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">kvvj_id</th>
+                                    <th scope="col">kvvj_username</th>
+                                    <th scope="col">kvvj_roles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="table : ${tables}">
+                                    <td th:text="${table.id}">empty</td>
+                                    <td th:text="${table.username}">empty</td>
+                                    <td th:text="${table.roles}">empty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+    <script th:src="@{/js/kvvj_admin.js}"></script>
+</body>
+</html>

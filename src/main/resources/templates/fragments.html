@@ -78,7 +78,7 @@
                         [[${#httpServletRequest.remoteUser}]]
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="user">
-                        <a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_ADMIN')">kvvj_Администрирование</a>
+                        <a class="dropdown-item" href="/kvvj_admin" sec:authorize="hasRole('ROLE_ADMIN')">kvvj_Администрирование</a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-item">
                             <form method="post" th:action="@{/logout}">

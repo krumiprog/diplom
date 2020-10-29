@@ -30,7 +30,6 @@ let rowCurIndex = -1;
 
 function sendRj() {
     registrationBook = {
-//        rjData: "2020-11-11",
         rjDokk: pdDokk.value,
         rjDokn: parseInt(pdDokn.value),
         rjDokd: pdDokd.value,
