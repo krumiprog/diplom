@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+// можно удалить, использовалось при разработке
 @Controller
 @RequestMapping("registration")
 public class RegistrationController {
@@ -38,7 +39,6 @@ public class RegistrationController {
 
         user.setRoles(Arrays.stream(Role.values()).collect(Collectors.toSet()));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
 
         return "redirect:/login";

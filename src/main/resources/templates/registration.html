@@ -4,15 +4,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Application</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        input {
+            margin-left: 10px
+        }
+    </style>
 </head>
 <body>
     <h1>Registration</h1>
-    <form th:action="@{/registration}" method="post">
-        <label for="password">password</label>
-        <input type="text" id="password" name="password"><br>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <button type="submit">submit</button>
-    </form>
+    <div class="form">
+        <form th:action="@{/registration}" method="post">
+            <div class="row">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="row">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password"><br>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
