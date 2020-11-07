@@ -84,7 +84,7 @@ public class BookAccountsController {
         if (sysSetup.isPresent()) {
             model.addAttribute("nstS", sysSetup.get().getNstS());
             model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
-            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+            model.addAttribute("nstDatad", sysSetup.get().getNstDatad());
 
             List<BookAccounts> allByKsSAndKsDataBetween = bookAccountsRepository.findAllByKsSAndKsDataBetween(
                     sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
@@ -104,7 +104,7 @@ public class BookAccountsController {
         if (sysSetup.isPresent()) {
             model.addAttribute("nstS", sysSetup.get().getNstS());
             model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
-            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+            model.addAttribute("nstDatad", sysSetup.get().getNstDatad());
 
             String[][] allUtilities = bookAccountsRepository.findOrderLog(
                     sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());
@@ -125,7 +125,7 @@ public class BookAccountsController {
         if (sysSetup.isPresent()) {
             model.addAttribute("nstS", sysSetup.get().getNstS());
             model.addAttribute("nstDatas", sysSetup.get().getNstDatas());
-            model.addAttribute("nstDatas", sysSetup.get().getNstDatad());
+            model.addAttribute("nstDatad", sysSetup.get().getNstDatad());
 
             String[][] allUtilities = bookAccountsRepository.findBalanceSheet(
                     sysSetup.get().getNstS(), sysSetup.get().getNstDatas(), sysSetup.get().getNstDatad());

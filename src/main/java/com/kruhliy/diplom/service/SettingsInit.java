@@ -10,10 +10,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Set;
-import java.util.stream.Collectors;
+
+// Используется для первоночальной инициализации пользователей admin, user
+// Преред первой компиляцией и запуском раскомментировать, при последующии закомментировать
 
 //@Service
 //public class SettingsInit implements CommandLineRunner {

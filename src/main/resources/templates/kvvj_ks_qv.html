@@ -10,18 +10,32 @@
                 <h5 class="card-title">kvvj_Балансовая ведомость</h5>
             </div>
             <div class="card-body">
+<!--                <div class="form-group row">-->
+<!--                    <label class="col-2 col-form-label text-right" for="nstS">По счёту</label>-->
+<!--                    <div class="col-2">-->
+<!--                        <input id="nstS" name="nstS" type="text" class="form-control" th:value="${nstS}" readonly>-->
+<!--                    </div>-->
+<!--                    <label class="col-2 col-form-label text-right" for="nstDatas">За интервал с</label>-->
+<!--                    <div class="col-2">-->
+<!--                        <input id="nstDatas" name="nstDatas" type="text" class="form-control" th:value="${nstDatas}" readonly>-->
+<!--                    </div>-->
+<!--                    <label class="col-1 col-form-label text-right" for="nstDatad">до</label>-->
+<!--                    <div class="col-2">-->
+<!--                        <input id="nstDatad" name="nstDatad" type="text" class="form-control" th:value="${nstDatad}" readonly>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-right" for="nstS">По счёту</label>
-                    <div class="col-2">
+                    <div class="col-1">
                         <input id="nstS" name="nstS" type="text" class="form-control" th:value="${nstS}" readonly>
                     </div>
                     <label class="col-2 col-form-label text-right" for="nstDatas">За интервал с</label>
-                    <div class="col-2">
-                        <input id="nstDatas" name="nstDatas" type="text" class="form-control" th:value="${nstDatas}" readonly>
+                    <div class="col-3">
+                        <input id="nstDatas" name="nstDatas" type="date" class="form-control" th:value="${nstDatas}" readonly>
                     </div>
                     <label class="col-1 col-form-label text-right" for="nstDatad">до</label>
-                    <div class="col-2">
-                        <input id="nstDatad" name="nstDatad" type="text" class="form-control" th:value="${nstDatas}" readonly>
+                    <div class="col-3">
+                        <input id="nstDatad" name="nstDatad" type="date" class="form-control" th:value="${nstDatad}" readonly>
                     </div>
                 </div>
                 <table name="tables" class="table table-sm table-striped table-hover">
