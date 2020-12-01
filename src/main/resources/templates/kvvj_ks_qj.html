@@ -5,7 +5,7 @@
 <th:block th:replace="fragments :: header"></th:block>
 
     <div class="container">
-        <div class="card my-3 shadow">
+        <div class="card my-5">
             <div class="card-header text-center">
                 <h5 class="card-title">kvvj_Журнал-ордер</h5>
             </div>
@@ -27,18 +27,18 @@
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-right" for="nstS">По счёту</label>
                     <div class="col-1">
-                        <input id="nstS" name="nstS" type="text" class="form-control" th:value="${nstS}" readonly>
+                        <input id="nstS" name="nstS" type="text" class="form-control my-reset" th:value="${nstS}" readonly>
                     </div>
                     <label class="col-2 col-form-label text-right" for="nstDatas">За интервал с</label>
                     <div class="col-3">
-                        <input id="nstDatas" name="nstDatas" type="date" class="form-control" th:value="${nstDatas}" readonly>
+                        <input id="nstDatas" name="nstDatas" type="date" class="form-control my-reset" th:value="${nstDatas}" readonly>
                     </div>
                     <label class="col-1 col-form-label text-right" for="nstDatad">до</label>
                     <div class="col-3">
-                        <input id="nstDatad" name="nstDatad" type="date" class="form-control" th:value="${nstDatad}" readonly>
+                        <input id="nstDatad" name="nstDatad" type="date" class="form-control my-reset" th:value="${nstDatad}" readonly>
                     </div>
                 </div>
-                <table name="tables" class="table table-sm table-striped table-hover">
+                <table name="tables" class="table table-sm table-striped table-hover table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Счёт</th>
